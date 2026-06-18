@@ -1,155 +1,451 @@
+html {
+    scroll-behavior: smooth;
+}
+
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    background-color: #FDFBF7;
+    background-color: #F5EFEB;
     font-family: 'Montserrat', sans-serif;
-    color: #4A554A;
+    color: #2E221F;
 }
 
 .cabecalho {
-    background-color: #FDFBF7;
-    text-align: center;      /* Centraliza a logo e o menu de forma simples */
-    padding: 20px 0px;
-    border-bottom: 1px solid #EAE6DE;
+    background-color: #F5EFEB; 
+    padding: 30px 10%;
+    border-bottom: 1px solid #D6C9BF; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    z-index: 1000;
+    top: 0;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column; 
 }
 
 .logo h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 26px;
-    color: #1C2E24;
+    font-size: 28px;
+    color: #162E20;
+    letter-spacing: 1px;
 }
 
 .logo .subtitulo {
     font-size: 10px;
     text-transform: uppercase;
-    letter-spacing: 3px;
-    margin-top: 2px;
-}
-
-/* Links do menu jogados lado a lado usando margens */
-.menu {
-    margin-top: 15px;
+    letter-spacing: 4px;
+    margin-top: 4px;
+    color: #8C5B61;
 }
 
 .menu a {
     text-decoration: none;
-    color: #1C2E24;
+    color: #162E20;
     font-size: 14px;
-    margin: 0 15px; /* Cria o espaçamento entre as palavras do menu */
+    margin: 0 20px; 
+    transition: color 0.3s ease;
+    font-weight: 500;
 }
 
 .menu a:hover {
-    color: #E8C5C4;
+    color: #8C5B61;
 }
 
 .hero {
-    height: 500px; /* Definimos uma altura fixa simples para não complicar com vh */
-    
-    /* Configuração da foto de fundo */
-    background-image: url('https://images.unsplash.com/photo-1526047932273-341f2a7631f9?q=80&w=1920');
+    height: 700px; 
+    background-image: url('flor.jpg'); 
     background-size: cover;
-    background-position: center;
-    
-    /* O SEGREDO DO VÍDEO: Apenas uma linha para o professor ver */
+    background-position: right center;
     background-attachment: fixed; 
-    
-    /* Empurra o conteúdo de texto para baixo e para o lado */
-    padding-top: 150px;
+    padding-top: 130px;
     padding-left: 10%;
 }
 
 .hero-conteudo {
-    max-width: 450px;
-    color: #ffffff; /* Texto branco para dar contraste com a foto */
+    max-width: 500px;
+    color: #ffffff; 
 }
 
 .hero-conteudo .tagline {
     font-size: 12px;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
+    color: #F5EFEB;
+    margin-bottom: 10px;
 }
 
 .hero-conteudo h2 {
     font-family: 'Playfair Display', serif;
-    font-size: 50px;
+    font-size: 56px;
     margin: 10px 0px;
+    line-height: 1.1;
 }
 
 .hero-conteudo .descricao {
-    font-size: 15px;
-    margin-bottom: 30px;
+    font-size: 16px;
+    margin-bottom: 40px;
+    line-height: 1.6;
 }
 
-/* Botão simples com borda */
 .btn-shop {
     display: inline-block;
-    padding: 12px 30px;
+    padding: 14px 35px;
     border: 1px solid #ffffff;
     color: #ffffff;
     text-decoration: none;
     text-transform: uppercase;
     font-size: 12px;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
 }
 
-.sobre {
-    background-color: #ffffff;
-    padding: 60px 10%;
-    text-align: center;
+.btn-shop:hover {
+    background-color: #8C5B61;
+    border-color: #8C5B61;
+    color: #ffffff;
 }
 
-.sobre h2 {
+.oferecemos {
+    background-color: #162E20;
+    color: #F5EFEB;
+    padding: 120px 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 80px;
+}
+
+.oferecemos-texto {
+    flex: 1;
+    max-width: 400px;
+}
+
+.oferecemos-texto h2 {
     font-family: 'Playfair Display', serif;
-    font-size: 32px;
-    color: #1C2E24;
-    margin-bottom: 20px;
+    font-size: 38px;
+    color: #E5C3C2;
+    margin-bottom: 25px;
+    line-height: 1.2;
+}
+
+.oferecemos-texto p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #D6C9BF;
+}
+
+.oferecemos-grid {
+    flex: 2;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.oferecemos-card {
+    background-color: #1F3A2A;
+    padding: 40px 30px;
+    border: 1px solid rgba(229, 195, 194, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.oferecemos-card:hover {
+    transform: translateY(-5px);
+}
+
+.oferecemos-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: #E5C3C2;
+    margin-bottom: 15px;
+}
+
+.oferecemos-card p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #D6C9BF;
 }
 
 .vitrine {
-    background-color: #ffffff;
-    padding: 60px 10%;
+    background-color: #F5EFEB;
+    padding: 120px 10%;
 }
 
 .vitrine-titulo {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 70px;
 }
 
 .vitrine-titulo .sub-vitrine {
-    font-size: 11px;
+    font-size: 12px;
     text-transform: uppercase;
+    color: #8C5B61;
+    letter-spacing: 3px;
 }
 
 .vitrine-titulo h2 {
     font-family: 'Playfair Display', serif;
-    font-size: 32px;
-    color: #1C2E24;
+    font-size: 38px;
+    color: #162E20;
+    margin-top: 10px;
 }
 
-
 .produtos-container {
-    text-align: center; 
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
 }
 
 .produto-card {
-    display: inline-block; 
-    width: 30%;           
-    margin: 0 1.5%;       
-    vertical-align: top;
+    width: 32%;           
+    text-align: center;
 }
 
 .produto-card img {
-    width: 100%;           
-    height: 300px;
+    width: 100%;          
+    height: 420px;
     object-fit: cover;     
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #D6C9BF;
 }
 
 .produto-card h3 {
     font-family: 'Playfair Display', serif;
-    font-size: 18px;
-    color: #1C2E24;
+    font-size: 20px;
+    color: #162E20;
 }
 
+.sobre-feedbacks {
+    background-color: #162E20;
+    color: #F5EFEB;
+    padding: 120px 10%;
+    display: flex;
+    justify-content: space-between;
+    gap: 100px;
+    border-top: 1px solid rgba(214, 201, 191, 0.2);
+    border-bottom: 1px solid rgba(214, 201, 191, 0.2);
+}
+
+.sobre-bloco {
+    flex: 1;
+}
+
+.sobre-bloco h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    color: #E5C3C2;
+    margin-bottom: 25px;
+}
+
+.sobre-bloco p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #D6C9BF;
+}
+
+.feedbacks-bloco {
+    flex: 1;
+    position: relative;
+}
+
+.feedbacks-bloco h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    color: #E5C3C2;
+    margin-bottom: 25px;
+}
+
+.feedbacks-carrossel-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.feedbacks-wrapper {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    width: 100%;
+    padding-right: 40px;
+}
+
+.feedbacks-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+.feedback-card {
+    min-width: 280px;
+    max-width: 280px;
+    background-color: #1F3A2A;
+    border: 1px solid rgba(229, 195, 194, 0.2);
+    padding: 30px 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.feedback-card p {
+    font-style: italic;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #D6C9BF;
+}
+
+.feedback-card span {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #E5C3C2;
+    font-weight: 600;
+}
+
+.carrossel-seta {
+    position: absolute;
+    right: -25px;
+    font-size: 24px;
+    color: #E5C3C2;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.2s ease;
+    background-color: #162E20;
+    padding: 10px;
+}
+
+.carrossel-seta:hover {
+    transform: translateX(5px);
+}
+
+.contato {
+    background-color: #F5EFEB;
+    padding: 120px 10%;
+}
+
+.contato-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 80px;
+}
+
+.contato-info {
+    flex: 1;
+}
+
+.contato-info h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    color: #162E20;
+    margin-bottom: 35px;
+}
+
+.info-item {
+    font-size: 16px;
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+}
+
+.contato-formulario {
+    flex: 1;
+}
+
+.contato-formulario form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contato-formulario input,
+.contato-formulario textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #D6C9BF;
+    background-color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: #2E221F;
+}
+
+.contato-formulario input:focus,
+.contato-formulario textarea:focus {
+    outline: none;
+    border-color: #8C5B61;
+}
+
+.contato-formulario button {
+    padding: 18px;
+    background-color: #162E20;
+    color: #F5EFEB;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contato-formulario button:hover {
+    background-color: #8C5B61;
+}
+
+.rodape {
+    background-color: #162E20;
+    color: #F5EFEB;
+    padding: 80px 10% 40px 10%;
+}
+
+.rodape-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px solid rgba(214, 201, 191, 0.2);
+    padding-bottom: 50px;
+    gap: 50px;
+}
+
+.rodape-marca h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: #E5C3C2;
+    margin-bottom: 15px;
+}
+
+.rodape-marca p {
+    font-size: 14px;
+    max-width: 300px;
+    color: #D6C9BF;
+    line-height: 1.6;
+}
+
+.rodape-links, .rodape-redes {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.rodape-links a, .rodape-redes a {
+    color: #F5EFEB;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.rodape-links a:hover, .rodape-redes a:hover {
+    color: #E5C3C2;
+}
+
+.rodape-copyright {
+    text-align: center;
+    padding-top: 30px;
+    font-size: 12px;
+    color: #D6C9BF;
+}
