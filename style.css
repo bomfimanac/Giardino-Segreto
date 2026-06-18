@@ -1,0 +1,155 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #FDFBF7;
+    font-family: 'Montserrat', sans-serif;
+    color: #4A554A;
+}
+
+.cabecalho {
+    background-color: #FDFBF7;
+    text-align: center;      /* Centraliza a logo e o menu de forma simples */
+    padding: 20px 0px;
+    border-bottom: 1px solid #EAE6DE;
+}
+
+.logo h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    color: #1C2E24;
+}
+
+.logo .subtitulo {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-top: 2px;
+}
+
+/* Links do menu jogados lado a lado usando margens */
+.menu {
+    margin-top: 15px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #1C2E24;
+    font-size: 14px;
+    margin: 0 15px; /* Cria o espaçamento entre as palavras do menu */
+}
+
+.menu a:hover {
+    color: #E8C5C4;
+}
+
+.hero {
+    height: 500px; /* Definimos uma altura fixa simples para não complicar com vh */
+    
+    /* Configuração da foto de fundo */
+    background-image: url('https://images.unsplash.com/photo-1526047932273-341f2a7631f9?q=80&w=1920');
+    background-size: cover;
+    background-position: center;
+    
+    /* O SEGREDO DO VÍDEO: Apenas uma linha para o professor ver */
+    background-attachment: fixed; 
+    
+    /* Empurra o conteúdo de texto para baixo e para o lado */
+    padding-top: 150px;
+    padding-left: 10%;
+}
+
+.hero-conteudo {
+    max-width: 450px;
+    color: #ffffff; /* Texto branco para dar contraste com a foto */
+}
+
+.hero-conteudo .tagline {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.hero-conteudo h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 50px;
+    margin: 10px 0px;
+}
+
+.hero-conteudo .descricao {
+    font-size: 15px;
+    margin-bottom: 30px;
+}
+
+/* Botão simples com borda */
+.btn-shop {
+    display: inline-block;
+    padding: 12px 30px;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+.sobre {
+    background-color: #ffffff;
+    padding: 60px 10%;
+    text-align: center;
+}
+
+.sobre h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    color: #1C2E24;
+    margin-bottom: 20px;
+}
+
+.vitrine {
+    background-color: #ffffff;
+    padding: 60px 10%;
+}
+
+.vitrine-titulo {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.vitrine-titulo .sub-vitrine {
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+.vitrine-titulo h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    color: #1C2E24;
+}
+
+
+.produtos-container {
+    text-align: center; 
+}
+
+.produto-card {
+    display: inline-block; 
+    width: 30%;           
+    margin: 0 1.5%;       
+    vertical-align: top;
+}
+
+.produto-card img {
+    width: 100%;           
+    height: 300px;
+    object-fit: cover;     
+    margin-bottom: 10px;
+}
+
+.produto-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: #1C2E24;
+}
+
