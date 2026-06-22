@@ -1,4 +1,3 @@
-/* Configurações Globais */
 html {
     scroll-behavior: smooth;
 }
@@ -16,32 +15,29 @@ body {
     line-height: 1.6;
 }
 
-/* Evita que o cabeçalho fixo corte o início das secções */
 section {
     scroll-margin-top: 120px;
 }
 
-/* Configuração do Link da Logo */
 .logo-link {
     text-decoration: none;
     color: inherit;
 }
 
-/* Cabeçalho */
 .cabecalho {
     background-color: #FDFBF7;
-    padding: 20px 8%;
+    padding: 15px 5%;
     border-bottom: 1px solid #EAE6DE;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     position: sticky;
     top: 0;
     z-index: 1000;
 }
 
 .logo {
-    text-align: center;
+    text-align: left;
 }
 
 .logo h1 {
@@ -59,12 +55,39 @@ section {
     color: #8C5B61;
 }
 
-.menu {
-    margin-top: 20px;
+.menu-toggle {
+    display: none;
+}
+
+.hamburger {
     display: flex;
-    gap: 30px;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    padding: 15px;
+    position: absolute;
+    right: 5%;
+    top: 20px;
+    z-index: 1001;
+}
+
+.hamburger span {
+    display: block;
+    width: 28px;
+    height: 2px;
+    background-color: #1C2E24;
+    transition: all 0.3s ease;
+}
+
+.cabecalho .menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    gap: 20px;
+    padding: 20px 0 10px 0;
+    border-top: 1px solid #EAE6DE;
+    margin-top: 15px;
 }
 
 .menu a {
@@ -81,15 +104,30 @@ section {
     color: #8C5B61;
 }
 
-/* Hero Section */
+.menu-toggle:checked ~ .menu {
+    display: flex;
+}
+
+.menu-toggle:checked ~ .hamburger span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.menu-toggle:checked ~ .hamburger span:nth-child(2) {
+    opacity: 0;
+}
+.menu-toggle:checked ~ .hamburger span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
 .hero {
-    min-height: 80vh; 
-    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3)), url('flor.jpg'); 
+    min-height: 85vh; 
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3)), url('assets/flor.jpg'); 
     background-size: cover;
     background-position: center;
     background-attachment: fixed; 
     display: flex;
     align-items: center;
+    justify-content: center;
+    text-align: center;
     padding: 60px 10%;
 }
 
@@ -97,6 +135,7 @@ section {
     max-width: 550px;
     color: #ffffff;
     text-shadow: 0px 2px 10px rgba(0, 0, 0, 0.4); 
+    margin: 0 auto;
 }
 
 .hero-conteudo .tagline {
@@ -110,7 +149,7 @@ section {
 
 .hero-conteudo h2 {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(36px, 5vw, 56px); 
+    font-size: clamp(32px, 5vw, 56px); 
     margin-bottom: 15px;
     line-height: 1.1;
 }
@@ -142,14 +181,13 @@ section {
     transform: translateY(-2px);
 }
 
-/* Seção Serviços (Oferecemos) */
 .oferecemos {
     background-color: #162E20;
     color: #F5EFEB;
-    padding: 100px 10%;
+    padding: 80px 8%;
     display: flex;
     flex-direction: column;
-    gap: 60px;
+    gap: 50px;
 }
 
 .oferecemos-texto {
@@ -160,7 +198,7 @@ section {
 
 .oferecemos-texto h2 {
     font-family: 'Playfair Display', serif;
-    font-size: 38px;
+    font-size: 34px;
     color: #E5C3C2;
     margin-bottom: 20px;
 }
@@ -199,15 +237,14 @@ section {
     color: #D6C9BF;
 }
 
-/* Seção Vitrine */
 .vitrine {
     background-color: #FDFBF7;
-    padding: 100px 10%;
+    padding: 80px 8%;
 }
 
 .vitrine-titulo {
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 50px;
 }
 
 .vitrine-titulo .sub-vitrine {
@@ -220,7 +257,7 @@ section {
 
 .vitrine-titulo h2 {
     font-family: 'Playfair Display', serif;
-    font-size: 40px;
+    font-size: 34px;
     color: #162E20;
     margin-top: 10px;
 }
@@ -233,8 +270,8 @@ section {
 }
 
 .produto-card {
-    flex: 1 1 calc(33.333% - 20px); 
-    min-width: 280px; 
+    flex: 1 1 100%;
+    min-width: 270px; 
     max-width: 350px; 
     text-align: center;
 }
@@ -242,7 +279,7 @@ section {
 .img-container {
     position: relative;
     overflow: hidden;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     border: 1px solid #EAE6DE;
     height: 380px; 
     box-shadow: 0 4px 15px rgba(0,0,0,0.03);
@@ -259,7 +296,6 @@ section {
     transform: scale(1.05);
 }
 
-/* Efeito Hover dos Produtos */
 .produto-overlay {
     position: absolute;
     top: 0;
@@ -278,33 +314,28 @@ section {
     opacity: 1;
 }
 
-/* Preço minimalista e limpo sem o quadrado decorativo antigo */
 .produto-overlay .preco {
     color: #FDFBF7; 
     font-family: 'Playfair Display', serif;
     font-size: 24px;
     font-weight: 400;
     letter-spacing: 1px;
-    border: none;             
-    padding: 0;               
-    background-color: transparent; 
     text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.6); 
 }
 
 .produto-card h3 {
     font-family: 'Playfair Display', serif;
-    font-size: 19px;
+    font-size: 18px;
     color: #162E20;
     font-weight: 500;
 }
 
-/* Sobre & Feedbacks - Totalmente Verde Unificado */
 .sobre-feedbacks {
     background-color: #162E20; 
-    padding: 100px 10%;
+    padding: 80px 8%;
     display: flex;
     flex-direction: column; 
-    gap: 70px;
+    gap: 60px;
     overflow: hidden;
 }
 
@@ -316,14 +347,14 @@ section {
 
 .sobre-bloco h2 {
     font-family: 'Playfair Display', serif;
-    font-size: 38px;
+    font-size: 34px;
     color: #E5C3C2;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 .sobre-bloco p {
-    font-size: 16px;
-    line-height: 1.9;
+    font-size: 15px;
+    line-height: 1.8;
     color: #D6C9BF;
 }
 
@@ -333,19 +364,18 @@ section {
 
 .feedbacks-bloco h2 {
     font-family: 'Playfair Display', serif;
-    font-size: 32px;
+    font-size: 30px;
     color: #E5C3C2;
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 35px;
 }
 
-/* Estrutura do Carrossel com Efeito de Giro Infinito por CSS */
 .carrossel-infinito-container {
     display: flex;
     width: 100%;
     overflow: hidden;
     position: relative;
-    padding: 20px 0;
+    padding: 10px 0;
 }
 
 .carrossel-infinito-container::before,
@@ -359,22 +389,14 @@ section {
     pointer-events: none;
 }
 
-.carrossel-infinito-container::before {
-    left: 0;
-    top: 0;
-}
-
-.carrossel-infinito-container::after {
-    right: 0;
-    top: 0;
-    transform: rotateZ(180deg);
-}
+.carrossel-infinito-container::before { left: 0; top: 0; }
+.carrossel-infinito-container::after { right: 0; top: 0; transform: rotateZ(180deg); }
 
 .feedbacks-track {
     display: flex;
-    gap: 30px;
+    gap: 20px;
     animation: girarCarrossel 25s linear infinite; 
-    padding-right: 30px;
+    padding-right: 20px;
 }
 
 .carrossel-infinito-container:hover .feedbacks-track {
@@ -382,23 +404,23 @@ section {
 }
 
 .feedback-card {
-    flex: 0 0 350px; 
+    flex: 0 0 300px;
     background-color: #1F3A2A;
     border: 1px solid rgba(229, 195, 194, 0.15);
-    padding: 35px 30px;
+    padding: 30px 25px;
     border-radius: 4px;
 }
 
 .feedback-card p {
     font-style: italic;
-    font-size: 14px;
-    line-height: 1.7;
-    margin-bottom: 20px;
+    font-size: 13px;
+    line-height: 1.6;
+    margin-bottom: 15px;
     color: #D6C9BF;
 }
 
 .feedback-card span {
-    font-size: 12px;
+    font-size: 11px;
     text-transform: uppercase;
     color: #E5C3C2;
     font-weight: 600;
@@ -410,45 +432,44 @@ section {
     100% { transform: translateX(-100%); }
 }
 
-/* Contato */
 .contato {
-    padding: 100px 10%;
+    padding: 80px 8%;
     background-color: #FDFBF7;
 }
 
 .contato-container {
     display: flex;
     flex-direction: column;
-    gap: 60px;
+    gap: 40px;
     background: #ffffff;
-    padding: 50px;
+    padding: 30px;
     border: 1px solid #EAE6DE;
     box-shadow: 0 4px 20px rgba(0,0,0,0.02);
 }
 
 .contato-info h2 {
     font-family: 'Playfair Display', serif;
-    font-size: 36px;
+    font-size: 32px;
     color: #162E20;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 .info-item {
     font-size: 15px;
-    margin-bottom: 18px;
+    margin-bottom: 15px;
     color: #556255;
 }
 
 .contato-formulario form {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
 }
 
 .contato-formulario input,
 .contato-formulario textarea {
     width: 100%;
-    padding: 16px;
+    padding: 14px;
     border: 1px solid #D6C9BF;
     background-color: #FDFBF7;
     font-family: 'Montserrat', sans-serif;
@@ -464,7 +485,7 @@ section {
 }
 
 .contato-formulario button {
-    padding: 16px;
+    padding: 15px;
     background-color: #162E20;
     color: #F5EFEB;
     border: none;
@@ -480,19 +501,18 @@ section {
     background-color: #8C5B61;
 }
 
-/* Rodapé */
 .rodape {
     background-color: #162E20;
     color: #F5EFEB;
-    padding: 80px 10% 30px 10%;
+    padding: 60px 8% 30px 8%;
 }
 
 .rodape-container {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 35px;
     border-bottom: 1px solid rgba(214, 201, 191, 0.15);
-    padding-bottom: 50px;
+    padding-bottom: 40px;
 }
 
 .rodape-marca h3 {
@@ -510,7 +530,7 @@ section {
 .rodape-links, .rodape-redes {
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 12px;
 }
 
 .rodape-links a, .rodape-redes a {
@@ -531,25 +551,48 @@ section {
     color: #AA9E94;
 }
 
-/* Responsividade */
-@media (min-width: 768px) {
+@media (max-width: 767px) {
     .cabecalho {
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 25px 10%;
+        align-items: flex-start;
+        padding: 15px 5%;
     }
-    .menu { margin-top: 0; }
     
-    .contato-container {
-        flex-direction: row;
-        padding: 60px;
+    .logo h1 {
+        font-size: 22px; 
     }
-    .contato-info, .contato-formulario { flex: 1; }
-    .rodape-container { flex-direction: row; justify-content: space-between; }
-}
+    
+    .logo .subtitulo {
+        font-size: 9px;
+        letter-spacing: 3px;
+    }
+    
+    .logo {
+        text-align: left;
+    }
+    
+    .hero {
+        text-align: center;
+        justify-content: center;
+        min-height: 85vh;
+    }
+    
+    .hero-conteudo {
+        margin: 0 auto;
+    }
+    
+    .hero-conteudo h2 {
+        font-size: 34px; 
+        letter-spacing: 0.5px;
+    }
+    
+    .hero-conteudo .descricao {
+        font-size: 14px;
+        padding: 0 10px;
+    }
 
-@media (min-width: 1024px) {
-    .produto-card {
-        flex: 0 0 calc(33.333% - 20px); 
+    .vitrine-titulo h2,
+    .oferecemos-texto h2,
+    .sobre-bloco h2 {
+        font-size: 28px;
     }
 }
