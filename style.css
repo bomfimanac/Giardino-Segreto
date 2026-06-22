@@ -1,3 +1,4 @@
+/* Configurações Globais */
 html {
     scroll-behavior: smooth;
 }
@@ -9,32 +10,44 @@ html {
 }
 
 body {
-    background-color: #F5EFEB;
+    background-color: #FDFBF7;
     font-family: 'Montserrat', sans-serif;
-    color: #2E221F;
+    color: #4A554A;
+    line-height: 1.6;
 }
 
+/* Evita que o cabeçalho fixo corte o início das secções */
+section {
+    scroll-margin-top: 120px;
+}
+
+/* Configuração do Link da Logo */
+.logo-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Cabeçalho */
 .cabecalho {
-    background-color: #F5EFEB; 
-    padding: 30px 10%;
-    border-bottom: 1px solid #D6C9BF; 
+    background-color: #FDFBF7;
+    padding: 20px 8%;
+    border-bottom: 1px solid #EAE6DE;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
     position: sticky;
-    z-index: 1000;
     top: 0;
+    z-index: 1000;
 }
 
 .logo {
-    display: flex;
-    flex-direction: column; 
+    text-align: center;
 }
 
 .logo h1 {
     font-family: 'Playfair Display', serif;
     font-size: 28px;
-    color: #162E20;
+    color: #1C2E24;
     letter-spacing: 1px;
 }
 
@@ -46,113 +59,127 @@ body {
     color: #8C5B61;
 }
 
+.menu {
+    margin-top: 20px;
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 .menu a {
     text-decoration: none;
-    color: #162E20;
-    font-size: 14px;
-    margin: 0 20px; 
-    transition: color 0.3s ease;
+    color: #1C2E24;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     font-weight: 500;
+    transition: color 0.3s ease;
 }
 
 .menu a:hover {
     color: #8C5B61;
 }
 
+/* Hero Section */
 .hero {
-    height: 700px; 
-    background-image: url('flor.jpg'); 
+    min-height: 80vh; 
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3)), url('flor.jpg'); 
     background-size: cover;
-    background-position: right center;
+    background-position: center;
     background-attachment: fixed; 
-    padding-top: 130px;
-    padding-left: 10%;
+    display: flex;
+    align-items: center;
+    padding: 60px 10%;
 }
 
 .hero-conteudo {
-    max-width: 500px;
-    color: #ffffff; 
+    max-width: 550px;
+    color: #ffffff;
+    text-shadow: 0px 2px 10px rgba(0, 0, 0, 0.4); 
 }
 
 .hero-conteudo .tagline {
-    font-size: 12px;
+    font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 3px;
-    color: #F5EFEB;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+    color: #E5C3C2;
+    font-weight: 600;
 }
 
 .hero-conteudo h2 {
     font-family: 'Playfair Display', serif;
-    font-size: 56px;
-    margin: 10px 0px;
+    font-size: clamp(36px, 5vw, 56px); 
+    margin-bottom: 15px;
     line-height: 1.1;
 }
 
 .hero-conteudo .descricao {
     font-size: 16px;
-    margin-bottom: 40px;
-    line-height: 1.6;
+    margin-bottom: 35px;
+    color: #FDFBF7;
 }
 
 .btn-shop {
     display: inline-block;
-    padding: 14px 35px;
+    padding: 15px 40px;
     border: 1px solid #ffffff;
     color: #ffffff;
     text-decoration: none;
     text-transform: uppercase;
-    font-size: 12px;
+    font-size: 11px;
     letter-spacing: 2px;
+    font-weight: 600;
     transition: all 0.3s ease;
+    background-color: rgba(22, 46, 32, 0.2);
+    backdrop-filter: blur(4px);
 }
 
 .btn-shop:hover {
     background-color: #8C5B61;
     border-color: #8C5B61;
-    color: #ffffff;
+    transform: translateY(-2px);
 }
 
+/* Seção Serviços (Oferecemos) */
 .oferecemos {
     background-color: #162E20;
     color: #F5EFEB;
-    padding: 120px 10%;
+    padding: 100px 10%;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 80px;
+    flex-direction: column;
+    gap: 60px;
 }
 
 .oferecemos-texto {
-    flex: 1;
-    max-width: 400px;
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
 }
 
 .oferecemos-texto h2 {
     font-family: 'Playfair Display', serif;
     font-size: 38px;
     color: #E5C3C2;
-    margin-bottom: 25px;
-    line-height: 1.2;
+    margin-bottom: 20px;
 }
 
 .oferecemos-texto p {
     font-size: 16px;
-    line-height: 1.8;
     color: #D6C9BF;
 }
 
 .oferecemos-grid {
-    flex: 2;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); 
     gap: 30px;
 }
 
 .oferecemos-card {
     background-color: #1F3A2A;
-    padding: 40px 30px;
-    border: 1px solid rgba(229, 195, 194, 0.2);
+    padding: 45px 30px;
+    border: 1px solid rgba(229, 195, 194, 0.15);
     transition: transform 0.3s ease;
 }
 
@@ -169,72 +196,122 @@ body {
 
 .oferecemos-card p {
     font-size: 14px;
-    line-height: 1.6;
     color: #D6C9BF;
 }
 
+/* Seção Vitrine */
 .vitrine {
-    background-color: #F5EFEB;
-    padding: 120px 10%;
+    background-color: #FDFBF7;
+    padding: 100px 10%;
 }
 
 .vitrine-titulo {
     text-align: center;
-    margin-bottom: 70px;
+    margin-bottom: 60px;
 }
 
 .vitrine-titulo .sub-vitrine {
-    font-size: 12px;
+    font-size: 11px;
     text-transform: uppercase;
     color: #8C5B61;
     letter-spacing: 3px;
+    font-weight: 600;
 }
 
 .vitrine-titulo h2 {
     font-family: 'Playfair Display', serif;
-    font-size: 38px;
+    font-size: 40px;
     color: #162E20;
     margin-top: 10px;
 }
 
 .produtos-container {
     display: flex;
-    justify-content: space-between;
-    gap: 30px;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 40px 30px;
 }
 
 .produto-card {
-    width: 32%;           
+    flex: 1 1 calc(33.333% - 20px); 
+    min-width: 280px; 
+    max-width: 350px; 
     text-align: center;
+}
+
+.img-container {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border: 1px solid #EAE6DE;
+    height: 380px; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
 }
 
 .produto-card img {
     width: 100%;          
-    height: 420px;
-    object-fit: cover;     
-    margin-bottom: 20px;
-    border: 1px solid #D6C9BF;
+    height: 100%;
+    object-fit: cover; 
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.produto-card:hover img {
+    transform: scale(1.05);
+}
+
+/* Efeito Hover dos Produtos */
+.produto-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(22, 46, 32, 0.6); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.produto-card:hover .produto-overlay {
+    opacity: 1;
+}
+
+/* Preço minimalista e limpo sem o quadrado decorativo antigo */
+.produto-overlay .preco {
+    color: #FDFBF7; 
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    border: none;             
+    padding: 0;               
+    background-color: transparent; 
+    text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.6); 
 }
 
 .produto-card h3 {
     font-family: 'Playfair Display', serif;
-    font-size: 20px;
+    font-size: 19px;
     color: #162E20;
+    font-weight: 500;
 }
 
+/* Sobre & Feedbacks - Totalmente Verde Unificado */
 .sobre-feedbacks {
-    background-color: #162E20;
-    color: #F5EFEB;
-    padding: 120px 10%;
+    background-color: #162E20; 
+    padding: 100px 10%;
     display: flex;
-    justify-content: space-between;
-    gap: 100px;
-    border-top: 1px solid rgba(214, 201, 191, 0.2);
-    border-bottom: 1px solid rgba(214, 201, 191, 0.2);
+    flex-direction: column; 
+    gap: 70px;
+    overflow: hidden;
 }
 
 .sobre-bloco {
-    flex: 1;
+    max-width: 750px;
+    margin: 0 auto;
+    text-align: center;
 }
 
 .sobre-bloco h2 {
@@ -246,115 +323,120 @@ body {
 
 .sobre-bloco p {
     font-size: 16px;
-    line-height: 1.8;
+    line-height: 1.9;
     color: #D6C9BF;
 }
 
 .feedbacks-bloco {
-    flex: 1;
-    position: relative;
+    width: 100%;
 }
 
 .feedbacks-bloco h2 {
     font-family: 'Playfair Display', serif;
-    font-size: 38px;
+    font-size: 32px;
     color: #E5C3C2;
-    margin-bottom: 25px;
+    text-align: center;
+    margin-bottom: 40px;
 }
 
-.feedbacks-carrossel-container {
+/* Estrutura do Carrossel com Efeito de Giro Infinito por CSS */
+.carrossel-infinito-container {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
     position: relative;
-    display: flex;
-    align-items: center;
-    width: 100%;
+    padding: 20px 0;
 }
 
-.feedbacks-wrapper {
-    display: flex;
-    gap: 20px;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    width: 100%;
-    padding-right: 40px;
+.carrossel-infinito-container::before,
+.carrossel-infinito-container::after {
+    background: linear-gradient(to right, rgba(22, 46, 32, 1) 0%, rgba(22, 46, 32, 0) 100%);
+    content: "";
+    height: 100%;
+    position: absolute;
+    width: 15%;
+    z-index: 2;
+    pointer-events: none;
 }
 
-.feedbacks-wrapper::-webkit-scrollbar {
-    display: none;
+.carrossel-infinito-container::before {
+    left: 0;
+    top: 0;
+}
+
+.carrossel-infinito-container::after {
+    right: 0;
+    top: 0;
+    transform: rotateZ(180deg);
+}
+
+.feedbacks-track {
+    display: flex;
+    gap: 30px;
+    animation: girarCarrossel 25s linear infinite; 
+    padding-right: 30px;
+}
+
+.carrossel-infinito-container:hover .feedbacks-track {
+    animation-play-state: paused;
 }
 
 .feedback-card {
-    min-width: 280px;
-    max-width: 280px;
+    flex: 0 0 350px; 
     background-color: #1F3A2A;
-    border: 1px solid rgba(229, 195, 194, 0.2);
-    padding: 30px 25px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    border: 1px solid rgba(229, 195, 194, 0.15);
+    padding: 35px 30px;
+    border-radius: 4px;
 }
 
 .feedback-card p {
     font-style: italic;
     font-size: 14px;
-    line-height: 1.6;
-    margin-bottom: 15px;
+    line-height: 1.7;
+    margin-bottom: 20px;
     color: #D6C9BF;
 }
 
 .feedback-card span {
     font-size: 12px;
     text-transform: uppercase;
-    letter-spacing: 2px;
     color: #E5C3C2;
     font-weight: 600;
+    letter-spacing: 1px;
 }
 
-.carrossel-seta {
-    position: absolute;
-    right: -25px;
-    font-size: 24px;
-    color: #E5C3C2;
-    cursor: pointer;
-    user-select: none;
-    transition: transform 0.2s ease;
-    background-color: #162E20;
-    padding: 10px;
+@keyframes girarCarrossel {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
 }
 
-.carrossel-seta:hover {
-    transform: translateX(5px);
-}
-
+/* Contato */
 .contato {
-    background-color: #F5EFEB;
-    padding: 120px 10%;
+    padding: 100px 10%;
+    background-color: #FDFBF7;
 }
 
 .contato-container {
     display: flex;
-    justify-content: space-between;
-    gap: 80px;
-}
-
-.contato-info {
-    flex: 1;
+    flex-direction: column;
+    gap: 60px;
+    background: #ffffff;
+    padding: 50px;
+    border: 1px solid #EAE6DE;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.02);
 }
 
 .contato-info h2 {
     font-family: 'Playfair Display', serif;
-    font-size: 38px;
+    font-size: 36px;
     color: #162E20;
-    margin-bottom: 35px;
+    margin-bottom: 25px;
 }
 
 .info-item {
-    font-size: 16px;
-    margin-bottom: 20px;
-    letter-spacing: 0.5px;
-}
-
-.contato-formulario {
-    flex: 1;
+    font-size: 15px;
+    margin-bottom: 18px;
+    color: #556255;
 }
 
 .contato-formulario form {
@@ -366,12 +448,13 @@ body {
 .contato-formulario input,
 .contato-formulario textarea {
     width: 100%;
-    padding: 15px;
+    padding: 16px;
     border: 1px solid #D6C9BF;
-    background-color: #ffffff;
+    background-color: #FDFBF7;
     font-family: 'Montserrat', sans-serif;
     font-size: 14px;
-    color: #2E221F;
+    color: #162E20;
+    transition: border-color 0.3s ease;
 }
 
 .contato-formulario input:focus,
@@ -381,14 +464,14 @@ body {
 }
 
 .contato-formulario button {
-    padding: 18px;
+    padding: 16px;
     background-color: #162E20;
     color: #F5EFEB;
     border: none;
-    font-family: 'Montserrat', sans-serif;
     text-transform: uppercase;
-    font-size: 12px;
     letter-spacing: 2px;
+    font-weight: 600;
+    font-size: 12px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
@@ -397,43 +480,41 @@ body {
     background-color: #8C5B61;
 }
 
+/* Rodapé */
 .rodape {
     background-color: #162E20;
     color: #F5EFEB;
-    padding: 80px 10% 40px 10%;
+    padding: 80px 10% 30px 10%;
 }
 
 .rodape-container {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    border-bottom: 1px solid rgba(214, 201, 191, 0.2);
+    flex-direction: column;
+    gap: 40px;
+    border-bottom: 1px solid rgba(214, 201, 191, 0.15);
     padding-bottom: 50px;
-    gap: 50px;
 }
 
 .rodape-marca h3 {
     font-family: 'Playfair Display', serif;
-    font-size: 24px;
     color: #E5C3C2;
-    margin-bottom: 15px;
+    font-size: 24px;
+    margin-bottom: 12px;
 }
 
 .rodape-marca p {
-    font-size: 14px;
-    max-width: 300px;
     color: #D6C9BF;
-    line-height: 1.6;
+    font-size: 14px;
 }
 
 .rodape-links, .rodape-redes {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 14px;
 }
 
 .rodape-links a, .rodape-redes a {
-    color: #F5EFEB;
+    color: #D6C9BF;
     text-decoration: none;
     font-size: 14px;
     transition: color 0.3s ease;
@@ -447,5 +528,28 @@ body {
     text-align: center;
     padding-top: 30px;
     font-size: 12px;
-    color: #D6C9BF;
+    color: #AA9E94;
+}
+
+/* Responsividade */
+@media (min-width: 768px) {
+    .cabecalho {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 25px 10%;
+    }
+    .menu { margin-top: 0; }
+    
+    .contato-container {
+        flex-direction: row;
+        padding: 60px;
+    }
+    .contato-info, .contato-formulario { flex: 1; }
+    .rodape-container { flex-direction: row; justify-content: space-between; }
+}
+
+@media (min-width: 1024px) {
+    .produto-card {
+        flex: 0 0 calc(33.333% - 20px); 
+    }
 }
