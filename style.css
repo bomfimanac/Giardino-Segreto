@@ -1,20 +1,46 @@
+/* =========================================================
+   [CSS] CONFIGURAÇÕES GERAIS, RESETS E VARIÁVEIS DE TEMA
+   ========================================================= */
+
+/* Definição da Paleta de Cores Padrão (Modo Claro) usando Custom Properties (Variáveis CSS) */
+:root {
+    --bg-principal: #ffffff;    /* Restante do site com fundo branco puro */
+    --bg-cards: #ffffff;        
+    --texto-escuro: #1C2E24;    
+    --texto-corpo: #4A554A;     
+    --borda-suave: #EAE6DE;     
+    --rose-gold: #8C5B61;       
+}
+
+/* [REMAQUE DO MODO ESCURO]: Quando o JS injetar a classe '.dark-mode' na tag <body>, 
+   estas variáveis abaixo substituem as de cima instantaneamente em todo o documento. */
+body.dark-mode {
+    --bg-principal: #121A15;    /* Preto botânico profundo */
+    --bg-cards: #1A241F;        /* Verde escuro fechado para os cartões */
+    --texto-escuro: #FDFBF7;    /* Inverte para off-white para dar leitura nos títulos */
+    --texto-corpo: #C5CDC5;     /* Cinza claro para os blocos de texto */
+    --borda-suave: #2A3630;     /* Linhas de contorno mais escuras e discretas */
+}
+
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth; /* Cria o efeito fluido e deslizante ao navegar pelos links */
 }
 
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Garante que preenchimentos ou bordas não quebrem a largura fixa do grid */
 }
 
 body {
-    background-color: #FDFBF7;
+    background-color: var(--bg-principal); /* Aplicado via variável dinâmica */
     font-family: 'Montserrat', sans-serif;
-    color: #4A554A;
+    color: var(--texto-corpo);             /* Aplicado via variável dinâmica */
     line-height: 1.6;
+    transition: background-color 0.4s ease, color 0.4s ease; /* Transição suave na mudança de tema */
 }
 
+/* Compensação cirúrgica para que o topo das secções não suma por baixo da barra fixa */
 section {
     scroll-margin-top: 120px;
 }
@@ -24,26 +50,44 @@ section {
     color: inherit;
 }
 
-.cabecalho {
-    background-color: #FDFBF7;
-    padding: 15px 5%;
-    border-bottom: 1px solid #EAE6DE;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+/* --- CLASSE REVEAL (EFEITO CONTROLADO PELO JS) --- 
+   Mantém os elementos camuflados até o script injetar a classe .active */
+.reveal-section {
+    opacity: 0;
+    transform: translateY(50px); /* Começa 50 pixels deslocado para baixo */
+    transition: opacity 0.9s ease-out, transform 0.9s ease-out; /* Transição linear elegante */
 }
 
-.logo {
-    text-align: left;
+.reveal-section.active {
+    opacity: 1;
+    transform: translateY(0); /* Retorna ao local de origem de forma fluida */
+}
+
+
+/* =========================================================
+   ESTILOS DAS SEÇÕES (ORDEM CRONOLÓGICA DO HTML)
+   ========================================================= */
+
+/* --- 1. CABEÇALHO --- 
+   Barra de topo fixa, organização flexível de marca e menus */
+.cabecalho {
+    background-color: var(--bg-principal);
+    padding: 15px 5%;
+    border-bottom: 1px solid var(--borda-suave);
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between; 
+    align-items: center;
+    position: sticky; /* Trava no topo da viewport ao rolar a tela */
+    top: 0;
+    z-index: 1000; /* Garante prioridade máxima de empilhamento visual */
+    transition: background-color 0.4s ease, border-color 0.4s ease;
 }
 
 .logo h1 {
     font-family: 'Playfair Display', serif;
     font-size: 28px;
-    color: #1C2E24;
+    color: var(--texto-escuro);
     letter-spacing: 1px;
 }
 
@@ -52,22 +96,36 @@ section {
     text-transform: uppercase;
     letter-spacing: 4px;
     margin-top: 4px;
-    color: #8C5B61;
+    color: var(--rose-gold); 
+}
+
+/* Estilização do Botão de Alternar Modo Escuro */
+.btn-dark-mode {
+    background-color: transparent;
+    border: none;                 
+    color: var(--texto-escuro);
+    padding: 0;
+    font-size: 18px;               
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    order: -1;                    
+    margin-right: 15px;           
+}
+
+.btn-dark-mode:hover {
+    transform: scale(1.15);       
+    background-color: transparent; 
 }
 
 .menu-toggle {
-    display: none;
+    display: none; /* Mantém o checkbox ocultado para desktops */
 }
 
 .hamburger {
-    display: flex;
+    display: none; /* Oculta as 3 listras do menu no modo desktop */
     flex-direction: column;
     gap: 6px;
     cursor: pointer;
-    padding: 15px;
-    position: absolute;
-    right: 5%;
-    top: 20px;
     z-index: 1001;
 }
 
@@ -75,24 +133,20 @@ section {
     display: block;
     width: 28px;
     height: 2px;
-    background-color: #1C2E24;
+    background-color: var(--texto-escuro);
     transition: all 0.3s ease;
 }
 
 .cabecalho .menu {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    text-align: center;
-    gap: 20px;
-    padding: 20px 0 10px 0;
-    border-top: 1px solid #EAE6DE;
-    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 25px;
 }
 
 .menu a {
     text-decoration: none;
-    color: #1C2E24;
+    color: var(--texto-escuro);
     font-size: 13px;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -101,29 +155,19 @@ section {
 }
 
 .menu a:hover {
-    color: #8C5B61;
+    color: var(--rose-gold);
 }
 
-.menu-toggle:checked ~ .menu {
-    display: flex;
-}
 
-.menu-toggle:checked ~ .hamburger span:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-}
-.menu-toggle:checked ~ .hamburger span:nth-child(2) {
-    opacity: 0;
-}
-.menu-toggle:checked ~ .hamburger span:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-}
-
+/* --- 2. HERO SECTION --- 
+   Banner de impacto inicial com efeito de paralaxe na imagem */
 .hero {
     min-height: 85vh; 
-    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3)), url('assets/flor.jpg'); 
+    /* Overlay sutil de escurecimento para dar contraste ao texto branco frontal */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.45)), url('assets/flor.jpg'); 
     background-size: cover;
     background-position: center;
-    background-attachment: fixed; 
+    background-attachment: fixed; /* Fixação da imagem ao fundo gerando efeito parallax */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -134,8 +178,7 @@ section {
 .hero-conteudo {
     max-width: 550px;
     color: #ffffff;
-    text-shadow: 0px 2px 10px rgba(0, 0, 0, 0.4); 
-    margin: 0 auto;
+    text-shadow: 0px 2px 12px rgba(0, 0, 0, 0.5); 
 }
 
 .hero-conteudo .tagline {
@@ -149,7 +192,7 @@ section {
 
 .hero-conteudo h2 {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(32px, 5vw, 56px); 
+    font-size: 48px;
     margin-bottom: 15px;
     line-height: 1.1;
 }
@@ -172,74 +215,101 @@ section {
     font-weight: 600;
     transition: all 0.3s ease;
     background-color: rgba(22, 46, 32, 0.2);
-    backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px); /* Desfoque de fundo elegante estilo vidro frosted */
 }
 
 .btn-shop:hover {
-    background-color: #8C5B61;
-    border-color: #8C5B61;
-    transform: translateY(-2px);
+    background-color: var(--rose-gold);
+    border-color: var(--rose-gold);
+    transform: translateY(-2px); /* Pequena elevação tátil no hover */
 }
 
+
+/* --- 3. SEÇÃO DE BENEFÍCIOS (CORRIGIDA) --- */
 .oferecemos {
-    background-color: #162E20;
-    color: #F5EFEB;
-    padding: 80px 8%;
+    background-color: #162E20; /* Fundo verde botânico escuro */
+    padding: 120px 8%; 
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 60px;         
 }
 
+/* Garante o alinhamento central do bloco de texto superior */
 .oferecemos-texto {
     text-align: center;
     max-width: 700px;
     margin: 0 auto;
+    width: 100%;
 }
 
+/* FORÇA os títulos sumidos a aparecerem com destaque claro */
 .oferecemos-texto h2 {
     font-family: 'Playfair Display', serif;
-    font-size: 34px;
-    color: #E5C3C2;
+    font-size: 38px;
+    color: #E5C3C2 !important; /* Tom rosa antigo destacado */
+    margin-top: 10px;
     margin-bottom: 20px;
+    display: block;
 }
 
 .oferecemos-texto p {
-    font-size: 16px;
-    color: #D6C9BF;
+    font-size: 15px;
+    color: #D6C9BF !important; /* Tom areia claro legível */
 }
 
+/* RESOLVE O DESALINHAMENTO: Reconstrói o grid de colunas horizontais */
 .oferecemos-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); 
+    display: grid !important;
+    /* Divide em colunas lado a lado no desktop automaticamente */
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important; 
     gap: 30px;
+    width: 100%;
 }
 
+/* Estilização interna dos cards corrigida */
 .oferecemos-card {
-    background-color: #1F3A2A;
-    padding: 45px 30px;
-    border: 1px solid rgba(229, 195, 194, 0.15);
-    transition: transform 0.3s ease;
+    background-color: #1F3A2A; /* Verde um tom mais claro para contraste */
+    padding: 50px 35px;
+    border: 1px solid rgba(229, 195, 194, 0.15); 
+    border-radius: 4px;
+    position: relative; 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
 .oferecemos-card:hover {
     transform: translateY(-5px);
+    border-color: var(--rose-gold);
+}
+
+.card-decor {
+    position: absolute;
+    top: 25px;
+    right: 30px;
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: #E5C3C2;
+    opacity: 0.4;
 }
 
 .oferecemos-card h3 {
     font-family: 'Playfair Display', serif;
-    font-size: 22px;
-    color: #E5C3C2;
+    font-size: 20px;
+    color: #FDFBF7; /* Título do card visível */
     margin-bottom: 15px;
 }
 
 .oferecemos-card p {
-    font-size: 14px;
-    color: #D6C9BF;
+    font-size: 13.5px;
+    color: #C5CDC5; /* Texto interno claro */
+    line-height: 1.7;
 }
 
+/* --- 4. VITRINE --- 
+   Galeria flexível dos produtos com efeitos visuais e revelação de preços */
 .vitrine {
-    background-color: #FDFBF7;
-    padding: 80px 8%;
+    background-color: var(--bg-principal);
+    padding: 120px 8%;
 }
 
 .vitrine-titulo {
@@ -250,7 +320,7 @@ section {
 .vitrine-titulo .sub-vitrine {
     font-size: 11px;
     text-transform: uppercase;
-    color: #8C5B61;
+    color: var(--rose-gold);
     letter-spacing: 3px;
     font-weight: 600;
 }
@@ -258,13 +328,13 @@ section {
 .vitrine-titulo h2 {
     font-family: 'Playfair Display', serif;
     font-size: 34px;
-    color: #162E20;
+    color: var(--texto-escuro);
     margin-top: 10px;
 }
 
 .produtos-container {
     display: flex;
-    flex-wrap: wrap; 
+    flex-wrap: wrap; /* Faz os cards descerem para a linha seguinte no mobile */
     justify-content: center; 
     gap: 40px 30px;
 }
@@ -278,22 +348,21 @@ section {
 
 .img-container {
     position: relative;
-    overflow: hidden;
+    overflow: hidden; /* Recorta qualquer zoom da foto para não vazar das bordas */
     margin-bottom: 15px;
-    border: 1px solid #EAE6DE;
+    border: 1px solid var(--borda-suave);
     height: 380px; 
-    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
 }
 
 .produto-card img {
     width: 100%;          
     height: 100%;
-    object-fit: cover; 
+    object-fit: cover; /* Adapta a proporção da imagem ao box model sem esticar */
     transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .produto-card:hover img {
-    transform: scale(1.05);
+    transform: scale(1.05); /* Zoom suave controlado ao passar o rato */
 }
 
 .produto-overlay {
@@ -302,41 +371,41 @@ section {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(22, 46, 32, 0.6); 
+    background-color: rgba(22, 46, 32, 0.6); /* Verde escuro com opacidade */
     display: flex;
     justify-content: center;
     align-items: center;
-    opacity: 0;
+    opacity: 0; /* Começa completamente invisível */
     transition: opacity 0.4s ease;
 }
 
 .produto-card:hover .produto-overlay {
-    opacity: 1;
+    opacity: 1; /* Revelado instantaneamente no hover */
 }
 
 .produto-overlay .preco {
     color: #FDFBF7; 
     font-family: 'Playfair Display', serif;
     font-size: 24px;
-    font-weight: 400;
-    letter-spacing: 1px;
-    text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.6); 
 }
 
 .produto-card h3 {
     font-family: 'Playfair Display', serif;
     font-size: 18px;
-    color: #162E20;
+    color: var(--texto-escuro);
     font-weight: 500;
 }
 
+
+/* --- 5. SOBRE & FEEDBACKS --- 
+   Seção escura de transição e engrenagem do Slider Infinito 100% CSS */
 .sobre-feedbacks {
-    background-color: #162E20; 
-    padding: 80px 8%;
+    background-color: #162E20; /* Mantém fixo o verde escuro por estética de contraste */
+    padding: 120px 8%;
     display: flex;
     flex-direction: column; 
     gap: 60px;
-    overflow: hidden;
+    overflow: hidden; /* Corta o transbordo lateral da esteira contínua */
 }
 
 .sobre-bloco {
@@ -358,10 +427,6 @@ section {
     color: #D6C9BF;
 }
 
-.feedbacks-bloco {
-    width: 100%;
-}
-
 .feedbacks-bloco h2 {
     font-family: 'Playfair Display', serif;
     font-size: 30px;
@@ -378,6 +443,7 @@ section {
     padding: 10px 0;
 }
 
+/* Máscaras em gradiente (fade) para esfumaçar os cantos esquerdo e direito do carrossel */
 .carrossel-infinito-container::before,
 .carrossel-infinito-container::after {
     background: linear-gradient(to right, rgba(22, 46, 32, 1) 0%, rgba(22, 46, 32, 0) 100%);
@@ -388,23 +454,22 @@ section {
     z-index: 2;
     pointer-events: none;
 }
-
 .carrossel-infinito-container::before { left: 0; top: 0; }
 .carrossel-infinito-container::after { right: 0; top: 0; transform: rotateZ(180deg); }
 
 .feedbacks-track {
     display: flex;
     gap: 20px;
-    animation: girarCarrossel 25s linear infinite; 
-    padding-right: 20px;
+    width: max-content;
+    animation: girarCarrossel 30s linear infinite; /* Roda a animação de forma linear e eterna */
 }
 
 .carrossel-infinito-container:hover .feedbacks-track {
-    animation-play-state: paused;
+    animation-play-state: paused; /* Pausa a rolagem se o utilizador colocar o rato em cima */
 }
 
 .feedback-card {
-    flex: 0 0 300px;
+    width: 300px;
     background-color: #1F3A2A;
     border: 1px solid rgba(229, 195, 194, 0.15);
     padding: 30px 25px;
@@ -414,9 +479,8 @@ section {
 .feedback-card p {
     font-style: italic;
     font-size: 13px;
-    line-height: 1.6;
-    margin-bottom: 15px;
     color: #D6C9BF;
+    margin-bottom: 15px;
 }
 
 .feedback-card span {
@@ -427,37 +491,43 @@ section {
     letter-spacing: 1px;
 }
 
+/* Keyframe do Carrossel */
 @keyframes girarCarrossel {
     0% { transform: translateX(0); }
-    100% { transform: translateX(-100%); }
+    100% { transform: translateX(-50%); }
 }
 
+
+/* --- 6. CONTATO --- 
+   Estilização fina dos cartões de contacto e caixas de input interativas */
 .contato {
-    padding: 80px 8%;
-    background-color: #FDFBF7;
+    padding: 120px 8%;
+    background-color: var(--bg-principal);
+    transition: background-color 0.4s ease;
 }
 
 .contato-container {
     display: flex;
     flex-direction: column;
     gap: 40px;
-    background: #ffffff;
+    background-color: var(--bg-cards);
     padding: 30px;
-    border: 1px solid #EAE6DE;
+    border: 1px solid var(--borda-suave);
     box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+    transition: background-color 0.4s ease, border-color 0.4s ease;
 }
 
 .contato-info h2 {
     font-family: 'Playfair Display', serif;
     font-size: 32px;
-    color: #162E20;
+    color: var(--texto-escuro);
     margin-bottom: 20px;
 }
 
 .info-item {
     font-size: 15px;
     margin-bottom: 15px;
-    color: #556255;
+    color: var(--texto-corpo);
 }
 
 .contato-formulario form {
@@ -470,18 +540,18 @@ section {
 .contato-formulario textarea {
     width: 100%;
     padding: 14px;
-    border: 1px solid #D6C9BF;
-    background-color: #FDFBF7;
+    border: 1px solid var(--borda-suave);
+    background-color: var(--bg-principal);
     font-family: 'Montserrat', sans-serif;
     font-size: 14px;
-    color: #162E20;
-    transition: border-color 0.3s ease;
+    color: var(--texto-escuro);
+    transition: background-color 0.4s ease, border-color 0.4s ease;
 }
 
 .contato-formulario input:focus,
 .contato-formulario textarea:focus {
     outline: none;
-    border-color: #8C5B61;
+    border-color: var(--rose-gold); /* Borda destaca ao ganhar foco */
 }
 
 .contato-formulario button {
@@ -498,11 +568,14 @@ section {
 }
 
 .contato-formulario button:hover {
-    background-color: #8C5B61;
+    background-color: var(--rose-gold);
 }
 
+
+/* --- 7. RODAPÉ --- 
+   Encerramento corporativo e alinhamento de links institucionais */
 .rodape {
-    background-color: #162E20;
+    background-color: #162E20; /* Fundo fixo verde */
     color: #F5EFEB;
     padding: 60px 8% 30px 8%;
 }
@@ -525,6 +598,7 @@ section {
 .rodape-marca p {
     color: #D6C9BF;
     font-size: 14px;
+    max-width: 320px;
 }
 
 .rodape-links, .rodape-redes {
@@ -551,48 +625,91 @@ section {
     color: #AA9E94;
 }
 
+
+/* =========================================================
+   MEDIA QUERIES (REGRAS DE RESPONSIVIDADE)
+   ========================================================= */
+
+@media (min-width: 768px) {
+    .contato-container {
+        flex-direction: row; 
+        align-items: flex-start;
+        gap: 6%;
+        padding: 50px;
+    }
+
+    .contato-info, .contato-formulario { flex: 1; }
+
+    .rodape-container {
+        flex-direction: row; 
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .rodape-marca { flex: 2; }
+    .rodape-links, .rodape-redes { flex: 1; }
+}
+
 @media (max-width: 767px) {
     .cabecalho {
+        flex-direction: column;
         align-items: flex-start;
         padding: 15px 5%;
     }
     
-    .logo h1 {
-        font-size: 22px; 
-    }
-    
-    .logo .subtitulo {
-        font-size: 9px;
-        letter-spacing: 3px;
-    }
-    
-    .logo {
-        text-align: left;
-    }
-    
-    .hero {
-        text-align: center;
-        justify-content: center;
-        min-height: 85vh;
-    }
-    
-    .hero-conteudo {
-        margin: 0 auto;
-    }
-    
-    .hero-conteudo h2 {
-        font-size: 34px; 
-        letter-spacing: 0.5px;
-    }
-    
-    .hero-conteudo .descricao {
-        font-size: 14px;
-        padding: 0 10px;
+    .hamburger {
+        display: flex; 
+        position: absolute;
+        right: 5%;
+        top: 20px;
     }
 
-    .vitrine-titulo h2,
-    .oferecemos-texto h2,
-    .sobre-bloco h2 {
-        font-size: 28px;
+    .cabecalho .menu {
+        display: none; 
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        gap: 20px;
+        padding: 20px 0 10px 0;
+        border-top: 1px solid var(--borda-suave);
+        margin-top: 15px;
+
+    .cabecalho .menu {
+        display: none; 
+        flex-direction: column;
+        width: 100%;
+        text-align: center;         
+        align-items: center;       
+        justify-content: center;    
+        gap: 20px;
+        padding: 20px 0 30px 0;
+        border-top: 1px solid var(--borda-suave);
+        margin-top: 15px;
+        background-color: #162E20;  /* Cor de fundo do menu mobile */
+    }
+
+    /* Ajuste para que o botão de tema (agora apenas o emoji) fique centralizado */
+    .btn-dark-mode {
+        margin: 0 !important;      
+        font-size: 24px;           
+        order: -1;                  
     }
 }
+    }
+
+    /* Se o input invisível estiver ativado, força a exibição flex do menu suspenso */
+    .menu-toggle:checked ~ .menu { display: flex; }
+
+    /* Engenharia de animação para converter as 3 barras do hambúrguer num 'X' */
+    .menu-toggle:checked ~ .hamburger span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .menu-toggle:checked ~ .hamburger span:nth-child(2) { opacity: 0; }
+    .menu-toggle:checked ~ .hamburger span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+    .logo h1 { font-size: 22px; }
+    .hero-conteudo h2 { font-size: 34px; }
+    .vitrine-titulo h2, .oferecemos-texto h2, .sobre-bloco h2 { font-size: 28px; }
+
+    .rodape-container { text-align: center; align-items: center; }
+    .rodape-marca p { margin: 0 auto; }
+    .rodape-links, .rodape-redes { align-items: center; gap: 15px; }

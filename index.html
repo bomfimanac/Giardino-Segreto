@@ -3,10 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Giardino Segreto | Boutique de Flores</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -18,22 +22,24 @@
                 <p class="subtitulo">Boutique dei Fiori</p>
             </div>
         </a>
+        
         <input type="checkbox" id="menu-toggle" class="menu-toggle">
         <label for="menu-toggle" class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </label>
+            <span></span> <span></span> <span></span> </label>
+        
         <nav class="menu">
             <a href="#home">Home</a>
-            <a href="#oferecemos">Serviços</a>
+            <a href="#beneficios">Benefícios</a>
             <a href="#colecoes">Coleções</a>
             <a href="#sobre">Sobre</a>
             <a href="#contato">Contato</a>
+            
+            <button id="dark-mode-toggle" class="btn-dark-mode" aria-label="Alternar modo escuro">🌙</button>
         </nav>
     </header>
 
     <main class="conteudo-principal">
+        
         <section id="home" class="hero">
             <div class="hero-conteudo">
                 <p class="tagline">Flores que contam histórias</p>
@@ -43,37 +49,49 @@
             </div>
         </section>
 
-        <section id="oferecemos" class="oferecemos">
+        <section id="beneficios" class="oferecemos reveal-section">
             <div class="oferecemos-texto">
-                <h2>O Que Nós Oferecemos</h2>
-                <p>Design floral personalizado com curadoria de espécies para criar experiências visuais e sensoriais únicas.</p>
+                <p class="sub-vitrine" style="color: #8C5B61; letter-spacing: 3px; font-size: 11px; text-transform: uppercase; font-weight: 600; margin-bottom: 10px;">Excelência Botânica</p>
+                <h2>Nossos Serviços & Benefícios</h2>
+                <p>Design floral de alta costura com curadoria rigorosa de espécies para criar experiências visuais, táteis e aromáticas memoráveis em Manaus.</p>
             </div>
+            
             <div class="oferecemos-grid">
+                
                 <div class="oferecemos-card">
-                    <h3>Assinatura Floral</h3>
-                    <p>Flores frescas entregues periodicamente para decorar seu ambiente.</p>
+                    <div class="card-decor">01</div> <h3>Assinatura Floral Premium</h3>
+                    <p>Receba flores frescas, higienizadas e selecionadas periodicamente na sua casa ou escritório. Ideal para manter a sofisticação e o perfume natural dos ambientes sempre renovados.</p>
                 </div>
+                
                 <div class="oferecemos-card">
-                    <h3>Eventos Especiais</h3>
-                    <p>Cenografia botânica completa para casamentos e recepções.</p>
+                    <div class="card-decor">02</div>
+                    <h3>Cenografia para Eventos</h3>
+                    <p>Desenvolvemos toda a identidade botânica e cenográfica para casamentos, recepções, jantares intimistas e eventos corporativos, harmonizando minuciosamente as cores e texturas.</p>
                 </div>
+                
                 <div class="oferecemos-card">
-                    <h3>Arranjos Exclusivos</h3>
-                    <p>Composições únicas criadas sob medida por nossos designers.</p>
+                    <div class="card-decor">03</div>
+                    <h3>Arranjos Sob Medida</h3>
+                    <p>Composições inteiramente personalizadas criadas sob demanda por nossos designers florais. Cada haste é posicionada de forma única para contar uma história ou expressar um sentimento.</p>
                 </div>
+                
                 <div class="oferecemos-card">
-                    <h3>Cestas de Presente</h3>
-                    <p>Combinações sofisticadas de flores, texturas e aromas.</p>
+                    <div class="card-decor">04</div>
+                    <h3>Presentes Corporativos</h3>
+                    <p>Surpreenda parceiros de negócios, clientes e colaboradores com caixas cartonadas premium, mimos florais sofisticados e cartões caligrafados artesanalmente de acordo com o prestígio da sua marca.</p>
                 </div>
+                
             </div>
         </section>
 
-        <section id="colecoes" class="vitrine">
+        <section id="colecoes" class="vitrine reveal-section">
             <div class="vitrine-titulo">
                 <p class="sub-vitrine">Nossas Coleções</p>
                 <h2>Bouquets Autorais</h2>
             </div>
+            
             <div class="produtos-container">
+                
                 <div class="produto-card">
                     <div class="img-container">
                         <img src="assets/rosas brancas.jpg" alt="Bouquet Rosas Brancas">
@@ -83,6 +101,7 @@
                     </div>
                     <h3>Bouquet Rosas Brancas</h3>
                 </div>
+                
                 <div class="produto-card">
                     <div class="img-container">
                         <img src="assets/tulipas.jpg" alt="Bouquet Tulipas">
@@ -92,6 +111,7 @@
                     </div>
                     <h3>Bouquet Tulipas</h3>
                 </div>
+                
                 <div class="produto-card">
                     <div class="img-container">
                         <img src="assets/iris.jpg" alt="Bouquet Iris">
@@ -101,6 +121,7 @@
                     </div>
                     <h3>Bouquet Iris</h3>
                 </div>
+                
                 <div class="produto-card">
                     <div class="img-container">
                         <img src="assets/girassois.jpg" alt="Bouquet Girassol">
@@ -110,6 +131,7 @@
                     </div>
                     <h3>Bouquet Girassol</h3>
                 </div>
+                
                 <div class="produto-card">
                     <div class="img-container">
                         <img src="assets/rosas vermelhas.jpg" alt="Bouquet Rosas Vermelhas">
@@ -119,6 +141,7 @@
                     </div>
                     <h3>Bouquet Rosas Vermelhas</h3>
                 </div>
+                
                 <div class="produto-card">
                     <div class="img-container">
                         <img src="assets/peonias.jpg" alt="Bouquet Peonia">
@@ -128,18 +151,21 @@
                     </div>
                     <h3>Bouquet Peonia</h3>
                 </div>
+                
             </div>
         </section>
 
-        <section id="sobre" class="sobre-feedbacks">
+        <section id="sobre" class="sobre-feedbacks reveal-section">
             <div class="sobre-bloco">
                 <h2>Sobre Nós</h2>
                 <p>Com mais de 30 anos de experiência, a Giardino Segreto nasceu da paixão pela botânica clássica e pelo design de arranjos artesanais. Nossa missão é cultivar sentimentos e traduzir histórias através da delicadeza e sofisticação das melhores flores.</p>
             </div>
+            
             <div class="feedbacks-bloco">
                 <h2>O Que Dizem</h2>
                 <div class="carrossel-infinito-container">
                     <div class="feedbacks-track">
+                        
                         <div class="feedback-card">
                             <p>"Os arranjos mais lindos e sofisticados que já vi. O atendimento é impecável."</p>
                             <span>- Helena S.</span>
@@ -153,11 +179,10 @@
                             <span>- Mariana L.</span>
                         </div>
                         <div class="feedback-card">
-                            <p>"Arranjos impecáveis e entrega super pontual. Maravihloso!"</p>
+                            <p>"Arranjos impecáveis e entrega super pontual. Maravilovso!"</p>
                             <span>- Ricardo M.</span>
                         </div>
-                    </div>
-                    <div class="feedbacks-track">
+                        
                         <div class="feedback-card">
                             <p>"Os arranjos mais lindos e sofisticados que já vi. O atendimento é impecável."</p>
                             <span>- Helena S.</span>
@@ -171,15 +196,16 @@
                             <span>- Mariana L.</span>
                         </div>
                         <div class="feedback-card">
-                            <p>"Arranjos impecáveis e entrega super pontual. Maravihloso!"</p>
+                            <p>"Arranjos impecáveis e entrega super pontual. Maravilhoso!"</p>
                             <span>- Ricardo M.</span>
                         </div>
+                        
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="contato" class="contato">
+        <section id="contato" class="contato reveal-section">
             <div class="contato-container">
                 <div class="contato-info">
                     <h2>Contato</h2>
@@ -197,6 +223,7 @@
                 </div>
             </div>
         </section>
+        
     </main>
 
     <footer class="rodape">
@@ -207,7 +234,7 @@
             </div>
             <div class="rodape-links">
                 <a href="#home">Home</a>
-                <a href="#oferecemos">Serviços</a>
+                <a href="#beneficios">Benefícios</a>
                 <a href="#colecoes">Coleções</a>
                 <a href="#sobre">Sobre</a>
                 <a href="#contato">Contato</a>
