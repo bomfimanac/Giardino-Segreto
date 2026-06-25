@@ -6,39 +6,37 @@
 
 ## 📱 Sobre o Projeto
 
-O **Giardino Segreto** é um projeto de front-end que simula a experiência digital de uma floricultura de luxo. O design foi planejado para transmitir sofisticação, utilizando uma paleta de cores botânica, tipografia serifada clássica e transições suaves que enriquecem a experiência do usuário (*UX*).
+O **Giardino Segreto** é um projeto de front-end que simula a experiência digital de uma floricultura de luxo[cite: 1]. O design foi planejado para transmitir sofisticação, utilizando uma paleta de cores botânica, tipografia serifada clássica e transições suaves que enriquecem a experiência do usuário[cite: 1].
 
-O grande diferencial técnico deste projeto é a **otimização de performance**: interações complexas como o menu hambúrguer responsivo e o carrossel infinito de depoimentos foram criados **100% com CSS puro**, eliminando a necessidade de scripts pesados e garantindo um carregamento ultra-rápido.
+Este projeto evoluiu para incluir uma interface dinâmica com alternância de temas (Claro/Escuro) e otimizações de layout, mantendo a performance e o design responsivo como pilares centrais[cite: 2, 3, 4].
 
 ## ✨ Funcionalidades
 
-*   **Design Mobile-First & Responsivo:** Interface totalmente adaptada e calibrada para smartphones, tablets e desktops.
-*   **Menu Hambúrguer Nativo:** Navegação mobile interativa construída sem JavaScript, utilizando o truque do `checkbox` em CSS.
-*   **Vitrine Interativa de Produtos:** Cards de produtos com efeito de zoom suave e exibição de preço sob overlay ao passar o mouse (*hover*).
-*   **Carrossel Infinito de Feedbacks:** Slider de depoimentos contínuo e automatizado via CSS Animations, que pausa suavemente ao colocar o ponteiro do mouse por cima.
-*   **Navegação Suave (*Smooth Scroll*):** Links internos que deslizam suavemente até a seção desejada.
-*   **Formulário de Contato Estruturado:** Pronto para integração com serviços de back-end.
+* **Alternância de Temas (Dark Mode):** Sistema dinâmico que altera todo o esquema de cores (fundo, textos e bordas) e troca o ícone de indicação (Lua/Sol) em tempo real[cite: 2, 3].
+* **Design Mobile-First & Responsivo:** Interface totalmente adaptada para dispositivos móveis, com menus centralizados e alinhamento otimizado[cite: 3, 4].
+* **Menu Hambúrguer Nativo:** Navegação mobile interativa construída com CSS puro e reforçada por JavaScript para controle de estado[cite: 3, 4].
+* **Vitrine Interativa de Produtos:** Cards com efeito de zoom suave e exibição de preços ao passar o mouse[cite: 3, 4].
+* **Carrossel Infinito de Feedbacks:** Slider automatizado via CSS Animations com pausa ao passar o mouse[cite: 3, 4].
+* **Efeito de Revelação (Scroll Reveal):** Animação suave de entrada para as seções da página, gerenciada via `IntersectionObserver`[cite: 2, 3].
 
 ## 🎨 Identidade Visual
 
-*   **Cores Principais:**
-    *   `#162E20` (Verde Botânico Escuro) — Transmite sofisticação e conexão com a natureza.
-    *   `#FDFBF7` (Off-White) — Fundo suave que descansa os olhos e destaca os produtos.
-    *   `#E5C3C2` & `#8C5B61` (Variações de Rosa Antigo) — Tons de destaque para botões, tags e subtítulos.
-*   **Tipografia:**
-    *   *Playfair Display* (Títulos) — Elegância clássica com serifas.
-    *   *Montserrat* (Textos e Menu) — Moderna, limpa e de excelente legibilidade.
+* **Paleta de Cores Dinâmica:**
+    * **Modo Claro:** Baseada em `#ffffff` (fundo) e `#1C2E24` (texto) para leitura limpa[cite: 3].
+    * **Modo Escuro:** Baseada em `#121A15` (fundo) e `#FDFBF7` (texto) para sofisticação noturna[cite: 3].
+    * **Destaques:** Uso recorrente de `#8C5B61` (Rose Gold) para botões e detalhes[cite: 3].
+* **Tipografia:** *Playfair Display* (Títulos) para elegância e *Montserrat* (Corpo) para legibilidade[cite: 4].
 
 ## 🛠️ Tecnologias Utilizadas
 
-*   **HTML5** — Estruturação semântica e acessível (com uso correto de tags como `<header>`, `<main>`, `<section>`, `<footer>` e atributos `alt`).
-*   **CSS3** — Estilização avançada, CSS Grid, Flexbox, Keyframes e Media Queries para responsividade.
-*   **Vanilla JavaScript** — Utilizado de forma minimalista apenas para confirmação de carregamento da interface, mantendo o foco no desempenho nativo do navegador.
+* **HTML5:** Estrutura semântica[cite: 4].
+* **CSS3:** Estilização avançada com variáveis CSS (`:root`), Flexbox, CSS Grid e animações `keyframes`[cite: 3].
+* **Vanilla JavaScript:** Implementação do `IntersectionObserver` para revelação de seções e lógica de alternância de temas[cite: 2].
 
 ## 📂 Estrutura do Repositório
 
 ```text
-├── index.html          # Estrutura principal das seções e conteúdo do site
-├── style.css           # Arquivo unificado de estilos, animações e responsividade
-├── script.js           # Script minimalista de inicialização
-└── [assets]/          # Banco de imagens do projeto (flor.jpg, tulipas.jpg, etc.)
+├── index.html          # Estrutura principal e seções do site
+├── style.css           # Estilos unificados, variáveis de tema e Media Queries
+├── script.js           # Lógica de Dark Mode e Scroll Reveal
+└── assets/             # Imagens e recursos visuais do projeto
